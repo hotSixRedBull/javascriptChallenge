@@ -129,24 +129,28 @@ function geoSuccess(position) {
         "Please add API Key of openweathermap.org in the code.(app.js#131)";
       // Please add api key here!
       const API_KEY = " ";
+      setInterval(() => {
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
+          });
+      }, 5000);
+    }
+  } catch (e) {
+    weatherDiv.innerText =
+      "Please add API Key of openweathermap.org in the code.(app.js#145)";
+    // Please add api key here!
+    const API_KEY = " ";
+    setInterval(() => {
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
           weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
         });
-    }
-  } catch (e) {
-    weatherDiv.innerText =
-      "Please add API Key of openweathermap.org in the code.(app.js#143)";
-    // Please add api key here!
-    const API_KEY = " ";
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
-      });
+    }, 5000);
   }
 }
 function geoFail() {
