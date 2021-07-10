@@ -15,7 +15,7 @@ function submitHandler() {
   const askName = document.querySelector("#askName");
   const form = document.querySelector("form");
   const name = document.querySelector("#nameInput");
-  askName.innerText = `Hi, ${name.value}. Have a nice day!`;
+  askName.innerText = `Hi, ${name.value}.\n Have a nice day!`;
   form.style.display = "none";
 }
 const inputForm = document.querySelector("#inputForm");
@@ -79,7 +79,7 @@ function loadLocalStorage() {
     list.appendChild(listEl);
   });
 
-  document.body.appendChild(list);
+  document.querySelector("#todoList").appendChild(list);
 }
 
 const todoDiv = document.querySelector("#todoList");
