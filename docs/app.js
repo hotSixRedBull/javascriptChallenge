@@ -95,13 +95,17 @@ todoDiv.appendChild(form);
 loadLocalStorage();
 
 // Random BackGround Image
-let color1 = Math.floor(Math.random() * (16 ** 6 - 1))
-  .toString(16)
-  .padStart(6, "0");
-let color2 = Math.floor(Math.random() * (16 ** 6 - 1))
-  .toString(16)
-  .padStart(6, "0");
-document.body.style.background = `linear-gradient(to right,#${color1},#${color2})`;
+function changeBackgroundImage() {
+  let color1 = Math.floor(Math.random() * (16 ** 6 - 1))
+    .toString(16)
+    .padStart(6, "0");
+  let color2 = Math.floor(Math.random() * (16 ** 6 - 1))
+    .toString(16)
+    .padStart(6, "0");
+  document.body.style.background = `linear-gradient(to right,#${color1},#${color2})`;
+}
+changeBackgroundImage();
+changeBackgroundImage();
 
 // Weather with Geolocation
 const weatherDiv = document.querySelector("#weather");
@@ -121,7 +125,7 @@ function geoSuccess(position) {
       });
   } else {
     weatherDiv.innerText =
-      "Please add API Key of openweathermap.org in the code.(app.js#126)";
+      "Please add API Key of openweathermap.org in the code.(app.js#128)";
     // Please add api key here!
     const API_KEY = "";
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
