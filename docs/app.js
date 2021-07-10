@@ -40,7 +40,7 @@ function todoSubmitHandler(e) {
       name: todoTextInput.value,
     });
   }
-  todoTextInput.innerText = "";
+  todoTextInput.value = "";
   localStorage.setItem("TODO", JSON.stringify(items));
   loadLocalStorage();
   console.log("items", items);
