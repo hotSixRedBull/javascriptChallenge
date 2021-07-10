@@ -73,7 +73,7 @@ function loadLocalStorage() {
     listEl.innerText = item.name;
     listEl.id = item.id;
     const deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "x";
+    deleteBtn.innerText = "";
     deleteBtn.addEventListener("click", removeOnClickHandler);
     listEl.appendChild(deleteBtn);
     list.appendChild(listEl);
