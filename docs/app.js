@@ -113,7 +113,7 @@ function geoSuccess(position) {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
   // weatherDiv.innerText = `Your location is, ${lat}, ${lng}`;
-  if (config && config.API_KEY) {
+  if (typeof config !== undefined && config && config.API_KEY) {
     const API_KEY = config.API_KEY;
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
     const weatherData = fetch(url);
