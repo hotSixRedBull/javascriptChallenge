@@ -113,44 +113,16 @@ function geoSuccess(position) {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
   // weatherDiv.innerText = `Your location is, ${lat}, ${lng}`;
-  try {
-    if (typeof config !== undefined && config && config.API_KEY) {
-      const API_KEY = config.API_KEY;
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
-      const weatherData = fetch(url);
-      console.log(weatherData);
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
-        });
-    } else {
-      weatherDiv.innerText =
-        "Please add API Key of openweathermap.org in the code.(app.js#131)";
-      // Please add api key here!
-      const API_KEY = " ";
-      setInterval(() => {
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
-          });
-      }, 5000);
-    }
-  } catch (e) {
-    weatherDiv.innerText =
-      "Please add API Key of openweathermap.org in the code.(app.js#145)";
-    // Please add api key here!
-    const API_KEY = " ";
-    setInterval(() => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
-        });
-    }, 5000);
+  if (config && config.API_KEY) {
+    const API_KEY = config.API_KEY;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
+    const weatherData = fetch(url);
+    console.log(weatherData);
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        weatherDiv.innerText = `${data.name}, ${data.weather[0].main}`;
+      });
   }
 }
 function geoFail() {
