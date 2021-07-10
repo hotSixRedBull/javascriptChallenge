@@ -43,7 +43,7 @@ function todoSubmitHandler(e) {
   todoTextInput.value = "";
   localStorage.setItem("TODO", JSON.stringify(items));
   loadLocalStorage();
-  console.log("items", items);
+  // console.log("items", items);
 }
 
 function loadLocalStorage() {
@@ -64,7 +64,7 @@ function loadLocalStorage() {
     localItems = localItems.filter((item) => {
       return String(item.id) !== String(listItem.id);
     });
-    console.log(localItems);
+    // console.log(localItems);
     localStorage.setItem("TODO", JSON.stringify(localItems));
   }
 
