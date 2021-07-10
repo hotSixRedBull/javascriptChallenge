@@ -127,7 +127,7 @@ function geoSuccess(position) {
     weatherDiv.innerText =
       "Please add API Key of openweathermap.org in the code.(app.js#128)";
     // Please add api key here!
-    const API_KEY = "";
+    const API_KEY = " ";
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`;
     fetch(url)
       .then((response) => response.json())
